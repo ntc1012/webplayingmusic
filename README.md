@@ -2,13 +2,13 @@
 
 > Đây là phần backend cho đồ án môn Công nghệ Web.  
 > Viết bằng Node.js + Express + MySQL.  
-> Nếu mày chỉ cần làm FE thì không cần cài cái này — đọc phần **"FE không muốn đụng vào BE"** bên dưới trước.
+> Nếu chỉ cần làm FE thì không cần cài cái này — đọc phần **"FE không muốn đụng vào BE"** bên dưới trước.
 
 ---
 
 ## Dành cho FE — đọc cái này trước
 
-Tao đã chuẩn bị sẵn một mock server, mày chạy được luôn mà **không cần cài MySQL hay bất cứ thứ gì phức tạp**.
+Đã chuẩn bị sẵn một mock server, chạy được luôn mà **không cần cài MySQL hay bất cứ thứ gì phức tạp**.
 
 **Bước 1** — Clone repo về:
 ```bash
@@ -22,9 +22,9 @@ npm install
 npm run mock
 ```
 
-Vậy là xong. Mày có ngay server giả ở `http://localhost:3001` với data bài hát thật để test.
+Đã có ngay server giả ở `http://localhost:3001` với data bài hát thật để test.
 
-> Khi tao báo "API thật xong rồi" thì mày chỉ cần đổi BASE_URL từ  
+> Khi báo "API thật xong rồi" thì chỉ cần đổi BASE_URL từ  
 > `http://localhost:3001` → `http://localhost:5000/api` là xong, không cần sửa gì khác.
 
 ---
