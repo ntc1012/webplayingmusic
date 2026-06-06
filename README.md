@@ -1,57 +1,79 @@
-# 🎵 Music Web — Backend
+# 🎵 Web Nghe Nhạc — Backend
 
-## Cài đặt & Chạy
+> Đây là phần backend cho đồ án môn Công nghệ Web.  
+> Viết bằng Node.js + Express + MySQL.  
+> Nếu chỉ cần làm FE thì không cần cài cái này — đọc phần **"FE không muốn đụng vào BE"** bên dưới trước.
 
-### 1. Cài dependencies
+---
+
+## Dành cho FE — đọc cái này trước
+
+Đã chuẩn bị sẵn một mock server, chạy được luôn mà **không cần cài MySQL hay bất cứ thứ gì phức tạp**.
+
+**Bước 1** — Clone repo về:
+```bash
+git clone https://github.com/ntc1012/webplayingmusic.git
+cd webplayingmusic
+npm install
+```
+
+**Bước 2** — Chạy mock server:
+```bash
+npm run mock
+```
+
+Đã có ngay server giả ở `http://localhost:3001` với data bài hát thật để test.
+
+> Khi báo "API thật xong rồi" thì chỉ cần đổi BASE_URL từ  
+> `http://localhost:3001` → `http://localhost:5000/api` là xong, không cần sửa gì khác.
+
+---
+
+## Dành cho BE — cài đầy đủ
+
+### 1. Clone và cài thư viện
 ```bash
 npm install
 ```
 
 ### 2. Tạo file .env
-```bash
-cp .env.example .env
-# Sửa DB_USER, DB_PASS, DB_NAME cho khớp với MySQL của bạn
-```
-
-### 3. Tạo database MySQL
+Copy từ `.env.example`, sửa lại thông tin MySQL:
+PORT=5000
+DB_HOST=localhost
+DB_PORT=3306
+DB_NAME=music_db
+DB_USER=root
+DB_PASS=
+JWT_SECRET=musicapp_secret_key_2024
+JWT_EXPIRES_IN=7d
+### 3. Tạo database
+Mở phpMyAdmin, chạy:
 ```sql
 CREATE DATABASE music_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 ```
 
-### 4. Chạy server (tự tạo bảng)
+### 4. Chạy server
 ```bash
 npm run dev
 ```
 
-### 5. Seed dữ liệu mẫu
+### 5. Seed data mẫu
 ```bash
 node seed.js
 ```
 
-### 6. Chạy mock server cho FE (không cần DB)
-```bash
-npm run mock
-# → http://localhost:3001
-```
+---
 
-## Tài khoản mẫu (sau khi seed)
-| Role | Email | Password |
-|------|-------|----------|
+## Tài khoản test
+
+| Vai trò | Email | Mật khẩu |
+|---------|-------|----------|
 | Admin | admin@music.com | admin123 |
-| User  | user@music.com  | user123  |
+| User | user@music.com | user123 |
 
-## Cấu trúc thư mục
-```
-src/
-├── config/       database.js
-├── controllers/  authController, songController, userController, artistController
-├── middlewares/  auth.js (JWT), upload.js (Multer)
-├── models/       index.js (tất cả model + associations)
-├── routes/       index.js
-└── index.js      entry point
-uploads/
-├── songs/        file mp3
-└── covers/       ảnh bìa
-mock/
-└── db.json       dữ liệu giả cho FE
-```
+---
+
+## API đang có
+
+Xem file `API_CONTRACT.md` để biết đầy đủ. Những route cần login thì gửi kèm header:
+Authorization: Bearer <token>
