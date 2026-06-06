@@ -2,13 +2,13 @@
   "songs": [
     { "id": 1, "title": "Chúng Ta Của Hiện Tại", "artistName": "Sơn Tùng M-TP", "albumName": "Sky Tour", "coverUrl": "https://picsum.photos/seed/s1/300/300", "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3", "duration": 253, "playCount": 1500000 },
     { "id": 2, "title": "Muộn Rồi Mà Sao Còn",   "artistName": "Sơn Tùng M-TP", "albumName": "Sky Tour", "coverUrl": "https://picsum.photos/seed/s2/300/300", "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3", "duration": 218, "playCount": 2100000 },
-    { "id": 3, "title": "Mang Tiền Về Cho Mẹ",    "artistName": "Đen Vâu",        "albumName": null,       "coverUrl": "https://picsum.photos/seed/s7/300/300", "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3", "duration": 245, "playCount": 5000000 },
-    { "id": 4, "title": "Để Mị Nói Cho Mà Nghe",  "artistName": "Hoàng Thùy Linh","albumName": "LINK",     "coverUrl": "https://picsum.photos/seed/s6/300/300", "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3", "duration": 198, "playCount": 3000000 },
-    { "id": 5, "title": "Trốn Tìm",               "artistName": "Đen Vâu",        "albumName": null,       "coverUrl": "https://picsum.photos/seed/s8/300/300", "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3", "duration": 208, "playCount": 2500000 }
+    { "id": 3, "title": "Mang Tiền Về Cho Mẹ",   "artistName": "Đen Vâu",        "albumName": null,       "coverUrl": "https://picsum.photos/seed/s7/300/300", "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3", "duration": 245, "playCount": 5000000 },
+    { "id": 4, "title": "Để Mị Nói Cho Mà Nghe", "artistName": "Hoàng Thùy Linh","albumName": "LINK",     "coverUrl": "https://picsum.photos/seed/s6/300/300", "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3", "duration": 198, "playCount": 3000000 },
+    { "id": 5, "title": "Trốn Tìm",              "artistName": "Đen Vâu",        "albumName": null,       "coverUrl": "https://picsum.photos/seed/s8/300/300", "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3", "duration": 208, "playCount": 2500000 }
   ],
   "artists": [
     { "id": 1, "name": "Sơn Tùng M-TP",  "avatarUrl": "https://picsum.photos/seed/sontung/200/200", "bio": "Ca sĩ nổi tiếng người Việt Nam" },
-    { "id": 2, "name": "Hoàng Thùy Linh","avatarUrl": "https://picsum.photos/seed/htl/200/200",    "bio": "Nữ ca sĩ đa tài" },
+    { "id": 2, "name": "Hoàng Thùy Linh","avatarUrl": "https://picsum.photos/seed/htl/200/200",     "bio": "Nữ ca sĩ đa tài" },
     { "id": 3, "name": "Đen Vâu",         "avatarUrl": "https://picsum.photos/seed/den/200/200",    "bio": "Rapper hàng đầu Việt Nam" }
   ]
 }

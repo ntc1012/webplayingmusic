@@ -1,0 +1,193 @@
+{
+  "info": {
+    "name": "Music App API",
+    "_postman_id": "music-app-2024",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "base", "value": "http://localhost:5000/api" },
+    { "key": "token", "value": "" }
+  ],
+  "item": [
+    {
+      "name": "1. AUTH",
+      "item": [
+        {
+          "name": "Đăng ký",
+          "request": {
+            "method": "POST", "url": "{{base}}/auth/register",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"name\": \"Tên Người Dùng\",\n  \"email\": \"test@gmail.com\",\n  \"password\": \"123456\"\n}" }
+          }
+        },
+        {
+          "name": "Đăng nhập (user)",
+          "request": {
+            "method": "POST", "url": "{{base}}/auth/login",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"email\": \"user@music.com\",\n  \"password\": \"user123\"\n}" }
+          }
+        },
+        {
+          "name": "Đăng nhập (admin)",
+          "request": {
+            "method": "POST", "url": "{{base}}/auth/login",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"email\": \"admin@music.com\",\n  \"password\": \"admin123\"\n}" }
+          }
+        },
+        {
+          "name": "Lấy thông tin tôi (cần token)",
+          "request": {
+            "method": "GET", "url": "{{base}}/auth/me",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }]
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. SONGS",
+      "item": [
+        {
+          "name": "Lấy tất cả bài hát",
+          "request": { "method": "GET", "url": "{{base}}/songs" }
+        },
+        {
+          "name": "Top 10 bài nghe nhiều",
+          "request": { "method": "GET", "url": "{{base}}/songs/top?limit=10" }
+        },
+        {
+          "name": "Tìm kiếm bài hát",
+          "request": { "method": "GET", "url": "{{base}}/songs/search?q=tùng" }
+        },
+        {
+          "name": "Chi tiết 1 bài",
+          "request": { "method": "GET", "url": "{{base}}/songs/1" }
+        },
+        {
+          "name": "Tăng lượt nghe",
+          "request": { "method": "PATCH", "url": "{{base}}/songs/1/play" }
+        },
+        {
+          "name": "Upload bài hát (admin)",
+          "request": {
+            "method": "POST", "url": "{{base}}/songs",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                { "key": "title",    "value": "Bài Hát Test",  "type": "text" },
+                { "key": "artistId", "value": "1",             "type": "text" },
+                { "key": "duration", "value": "200",           "type": "text" },
+                { "key": "audio",    "type": "file", "src": "" },
+                { "key": "cover",    "type": "file", "src": "" }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "3. ARTISTS & ALBUMS",
+      "item": [
+        {
+          "name": "Tất cả nghệ sĩ",
+          "request": { "method": "GET", "url": "{{base}}/artists" }
+        },
+        {
+          "name": "Chi tiết nghệ sĩ",
+          "request": { "method": "GET", "url": "{{base}}/artists/1" }
+        },
+        {
+          "name": "Tất cả album",
+          "request": { "method": "GET", "url": "{{base}}/albums" }
+        },
+        {
+          "name": "Chi tiết album",
+          "request": { "method": "GET", "url": "{{base}}/albums/1" }
+        }
+      ]
+    },
+    {
+      "name": "4. FAVORITES (cần token)",
+      "item": [
+        {
+          "name": "Xem danh sách yêu thích",
+          "request": {
+            "method": "GET", "url": "{{base}}/favorites",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }]
+          }
+        },
+        {
+          "name": "Kiểm tra bài có được like chưa",
+          "request": {
+            "method": "GET", "url": "{{base}}/favorites/1/check",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }]
+          }
+        },
+        {
+          "name": "Thêm vào yêu thích",
+          "request": {
+            "method": "POST", "url": "{{base}}/favorites/1",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }]
+          }
+        },
+        {
+          "name": "Xóa khỏi yêu thích",
+          "request": {
+            "method": "DELETE", "url": "{{base}}/favorites/1",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }]
+          }
+        }
+      ]
+    },
+    {
+      "name": "5. PLAYLISTS (cần token)",
+      "item": [
+        {
+          "name": "Xem tất cả playlist",
+          "request": {
+            "method": "GET", "url": "{{base}}/playlists",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }]
+          }
+        },
+        {
+          "name": "Tạo playlist mới",
+          "request": {
+            "method": "POST", "url": "{{base}}/playlists",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" },
+              { "key": "Content-Type",  "value": "application/json" }
+            ],
+            "body": { "mode": "raw", "raw": "{\n  \"name\": \"Nhạc Buồn 2024\"\n}" }
+          }
+        },
+        {
+          "name": "Thêm bài vào playlist",
+          "request": {
+            "method": "POST", "url": "{{base}}/playlists/1/songs",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" },
+              { "key": "Content-Type",  "value": "application/json" }
+            ],
+            "body": { "mode": "raw", "raw": "{\n  \"songId\": 1\n}" }
+          }
+        },
+        {
+          "name": "Xóa bài khỏi playlist",
+          "request": {
+            "method": "DELETE", "url": "{{base}}/playlists/1/songs/1",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }]
+          }
+        },
+        {
+          "name": "Xóa playlist",
+          "request": {
+            "method": "DELETE", "url": "{{base}}/playlists/1",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }]
+          }
+        }
+      ]
+    }
+  ]
+}
